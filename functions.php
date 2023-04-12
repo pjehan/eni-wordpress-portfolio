@@ -8,6 +8,10 @@ function portfolio_enqueue_styles() {
 add_action('after_setup_theme', 'portfolio_add_theme_support');
 function portfolio_add_theme_support() {
     add_theme_support('title-tag');
+    add_theme_support('custom-logo', [
+        'height' => 75,
+        'flex-width' => true
+    ]);
 }
 
 add_action('after_setup_theme', 'portfolio_register_menus');

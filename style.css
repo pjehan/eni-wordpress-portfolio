@@ -27,6 +27,12 @@ body.admin-bar .site-header {
     top: 32px;
 }
 
+.site-header > .container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
 .site-header nav ul.menu,
 .site-footer nav ul.menu {
     display: flex;

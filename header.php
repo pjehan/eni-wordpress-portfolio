@@ -11,6 +11,7 @@
 
 <header class="site-header">
     <div class="container">
+        <?php the_custom_logo(); ?>
         <?php wp_nav_menu([ 'theme_location' => 'main', 'container' => 'nav' ]); ?>
     </div>
 </header>
