@@ -12,6 +12,7 @@ function portfolio_add_theme_support() {
         'height' => 75,
         'flex-width' => true
     ]);
+    add_theme_support('post-thumbnails');
 }
 
 add_action('after_setup_theme', 'portfolio_register_menus');
@@ -28,4 +29,26 @@ function portfolio_register_sidebars() {
         'before_widget' => '',
         'after_widget' => '',
     ]);
+}
+
+add_action('init', 'portfolio_register_post_types');
+function portfolio_register_post_types() {
+    register_post_type('project', [
+        'labels' => [
+            'name' => 'Projets',
+            'singular_name' => 'Projet',
+            'menu_name' => 'Projets'
+        ],
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => ['slug' => 'projets'],
+        'menu_icon' => 'dashicons-portfolio',
+        'supports' => ['title', 'editor', 'thumbnail', 'excerpt']
+    ]);
+}
+
+add_action('after_switch_theme', 'portfolio_rewrite_flush');
+function portfolio_rewrite_flush() {
+    portfolio_register_post_types();
+    flush_rewrite_rules();
 }
