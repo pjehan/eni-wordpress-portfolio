@@ -13,4 +13,5 @@ function portfolio_add_theme_support() {
 add_action('after_setup_theme', 'portfolio_register_menus');
 function portfolio_register_menus() {
     register_nav_menu('main', 'Menu principal');
+    register_nav_menu('footer', 'Pied de page');
 }
