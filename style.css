@@ -6,3 +6,7 @@ Description: Le thème de mon portfolio
 Version: 1.0
 Text Domain: portfolio
 */
+
+body {
+    background-color: red;
+}
