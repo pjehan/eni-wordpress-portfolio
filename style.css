@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-    width: 1200px;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -79,4 +79,16 @@ body.admin-bar .site-header {
 
 .header-project-content {
     z-index: 1;
+}
+
+@media screen and (min-width: 900px) {
+    .container {
+        width: 900px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        width: 1200px;
+    }
 }
