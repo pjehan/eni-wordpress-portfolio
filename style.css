@@ -57,3 +57,26 @@ body.admin-bar .site-header {
     padding: 1rem 0;
     background-color: lightgray;
 }
+
+.header-project {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40vh;
+    color: white;
+    background-size: cover;
+    background-position: center;
+}
+
+.header-project:before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.header-project-content {
+    z-index: 1;
+}
