@@ -15,3 +15,13 @@ function portfolio_register_menus() {
     register_nav_menu('main', 'Menu principal');
     register_nav_menu('footer', 'Pied de page');
 }
+
+add_action('widgets_init', 'portfolio_register_sidebars');
+function portfolio_register_sidebars() {
+    register_sidebar([
+        'id' => 'footer',
+        'name' => 'Pied de page',
+        'before_widget' => '',
+        'after_widget' => '',
+    ]);
+}
