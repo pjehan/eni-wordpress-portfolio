@@ -11,7 +11,11 @@
 
 <header class="site-header">
     <div class="container">
-        <?php the_custom_logo(); ?>
+        <?php if (has_custom_logo()): ?>
+            <?php the_custom_logo(); ?>
+        <?php else: ?>
+            <?php bloginfo('name'); ?>
+        <?php endif; ?>
         <?php wp_nav_menu([ 'theme_location' => 'main', 'container' => 'nav' ]); ?>
     </div>
 </header>
