@@ -7,8 +7,17 @@ Version: 1.0
 Text Domain: portfolio
 */
 
+:root {
+    --color-primary: darkblue;
+    --color-background: gray;
+}
+
 body {
     margin: 0;
+}
+
+section {
+    margin: 3rem 0;
 }
 
 .container {
@@ -16,11 +25,52 @@ body {
     margin: 0 auto;
 }
 
+.btn {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px var(--color-background) solid;
+    border-radius: 5px;
+}
+
+.card > header img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card > main {
+    flex-grow: 1;
+    padding: 1rem;
+}
+
+.card > footer {
+    padding: 1rem;
+    background-color: var(--color-background);
+}
+
 .site-header {
     position: sticky;
     top: 0;
     padding: 1rem 0;
-    background-color: lightgray;
+    background-color: var(--color-background);
 }
 
 body.admin-bar .site-header {
@@ -55,7 +105,7 @@ body.admin-bar .site-header {
 
 .site-footer {
     padding: 1rem 0;
-    background-color: lightgray;
+    background-color: var(--color-background);
 }
 
 .header-project {
@@ -85,10 +135,18 @@ body.admin-bar .site-header {
     .container {
         width: 900px;
     }
+
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 @media screen and (min-width: 1200px) {
     .container {
         width: 1200px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
