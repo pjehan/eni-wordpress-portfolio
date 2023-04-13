@@ -1,6 +1,6 @@
 <article class="card">
     <header>
-        <?php the_post_thumbnail() ?>
+        <?php the_post_thumbnail('medium') ?>
     </header>
     <main>
         <h2><?php the_title() ?></h2>
