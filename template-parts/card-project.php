@@ -15,6 +15,15 @@
             <?php endforeach; ?>
         <?php endif; ?>
 
+        <?php $customers = get_the_terms(get_the_ID(), 'customer'); ?>
+        <?php if (is_array($customers)): ?>
+            <?php foreach ($customers as $customer) : ?>
+                <a href="<?= get_term_link($customer->term_id); ?>" class="btn btn-primary btn-small">
+                    <?= $customer->name ?>
+                </a>
+            <?php endforeach; ?>
+        <?php endif; ?>
+
         <p><?php the_excerpt() ?></p>
     </main>
     <footer>

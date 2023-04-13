@@ -61,6 +61,12 @@ function portfolio_register_post_types() {
         'rewrite' => ['slug' => 'technologies'],
         'hierarchical' => false
     ]);
+
+    register_taxonomy('customer', ['project'], [
+        'label' => 'Clients',
+        'rewrite' => ['slug' => 'clients'],
+        'hierarchical' => false
+    ]);
 }
 
 add_action('after_switch_theme', 'portfolio_rewrite_flush');
