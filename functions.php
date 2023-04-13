@@ -45,6 +45,12 @@ function portfolio_register_post_types() {
         'menu_icon' => 'dashicons-portfolio',
         'supports' => ['title', 'editor', 'thumbnail', 'excerpt']
     ]);
+
+    register_taxonomy('technology', ['project'], [
+        'label' => 'Technologies',
+        'rewrite' => ['slug' => 'technologies'],
+        'hierarchical' => false
+    ]);
 }
 
 add_action('after_switch_theme', 'portfolio_rewrite_flush');
