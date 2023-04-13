@@ -32,6 +32,13 @@
 
         <div class="container">
             <?php the_content(); ?>
+
+            <?php $gallery = carbon_get_the_post_meta('gallery'); ?>
+
+            <?php foreach ($gallery as $image_id) : ?>
+                <?= wp_get_attachment_image($image_id) ?>
+            <?php endforeach; ?>
+
         </div>
     <?php endwhile; else : ?>
 

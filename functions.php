@@ -76,6 +76,7 @@ function portfolio_register_fields() {
         ->add_fields([
             Field::make_date('date_start', 'Date de début')->set_required(),
             Field::make_date('date_end', 'Date de fin'),
-            Field::make_text('url', 'URL')->set_attribute('type', 'url')
+            Field::make_text('url', 'URL')->set_attribute('type', 'url'),
+            Field::make_media_gallery('gallery', 'Galerie')
         ]);
 }
