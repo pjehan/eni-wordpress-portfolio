@@ -68,3 +68,13 @@ function portfolio_rewrite_flush() {
     portfolio_register_post_types();
     flush_rewrite_rules();
 }
+
+add_action('carbon_fields_register_fields', 'portfolio_register_fields');
+function portfolio_register_fields() {
+    Container::make_post_meta('project-container', 'Données du projet')
+        ->where('post_type', '=', 'project')
+        ->add_fields([
+            Field::make_date('date_start', 'Date de début')->set_required(),
+            Field::make_date('date_end', 'Date de fin'),
+        ]);
+}
