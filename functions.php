@@ -1,5 +1,6 @@
 <?php
 
+use Carbon_Fields\Block;
 use Carbon_Fields\Carbon_Fields;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
@@ -95,4 +96,37 @@ function portfolio_register_fields() {
                 ->set_attribute('min', 0)
                 ->set_attribute('max', 100)
         ]);
+
+    Block::make('Liste des technologies')
+        ->set_category('portfolio', 'Portfolio', 'star-filled')
+        ->set_icon('reddit')
+        ->add_fields([
+            Field::make_select('columns', 'Nombre de colonnes')
+                ->set_options([
+                    'Une' => 1,
+                    'Deux' => 2,
+                    'Trois' => 3,
+                    'Quatre' => 4,
+                    'Cinq' => 5,
+                    'Six' => 6
+                ])
+        ])
+        ->set_render_callback(function($fields) {
+            $technologies = get_terms(['taxonomy' => 'technology', 'hide_empty' => false]);
+            ?>
+
+            <section class="grid">
+                <?php foreach ($technologies as $technology) : ?>
+                    <?php $logo_id = carbon_get_term_meta($technology->term_id, 'logo'); ?>
+                    <article>
+                        <?= wp_get_attachment_image($logo_id, 'medium') ?>
+                        <?= carbon_get_term_meta($technology->term_id, 'percentage') ?>
+                        <?= $technology->name ?>
+                    </article>
+                <?php endforeach; ?>
+            </section>
+
+            <?php
+        })
+    ;
 }
