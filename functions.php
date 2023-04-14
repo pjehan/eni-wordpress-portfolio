@@ -129,4 +129,33 @@ function portfolio_register_fields() {
             <?php
         })
     ;
+
+    Block::make('Liste des projets')
+        ->set_category('portfolio', 'Portfolio', 'star-filled')
+        ->set_icon('portfolio')
+        ->add_fields([
+            Field::make_text('nb_projects', 'Nombre de projets')
+                ->set_attribute('type', 'number')
+                ->set_default_value(3)
+        ])
+        ->set_render_callback(function($fields) {
+            $nb_projects = $fields['nb_projects'];
+            $query = new WP_Query([
+                'post_type' => 'project',
+                'posts_per_page' => $nb_projects
+            ]);
+            ?>
+
+            <section class="grid">
+                <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
+                    <?php get_template_part('template-parts/card', 'project'); ?>
+                <?php endwhile; else : ?>
+                    <p>Aucun projet à afficher</p>
+                <?php endif; ?>
+            </section>
+
+            <?php
+            wp_reset_postdata();
+        })
+    ;
 }
