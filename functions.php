@@ -85,4 +85,14 @@ function portfolio_register_fields() {
             Field::make_text('url', 'URL')->set_attribute('type', 'url'),
             Field::make_media_gallery('gallery', 'Galerie')
         ]);
+
+    Container::make_term_meta('technology-container', 'Données de la technologie')
+        ->where('term_taxonomy', '=', 'technology')
+        ->add_fields([
+            Field::make_image('logo', 'Logo'),
+            Field::make_text('percentage', 'Pourcentage')
+                ->set_attribute('type', 'number')
+                ->set_attribute('min', 0)
+                ->set_attribute('max', 100)
+        ]);
 }
